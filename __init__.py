@@ -1,5 +1,7 @@
 #
 # Copyright (C) 2022-2026 Bob Swift (rdswift)
+# Copyright (C) 2022-2026 Bob Swift (rdswift)
+# Copyright (C) 2026 joshinils
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -95,7 +97,7 @@ class GenreMapper:
             self.api.logger.debug('No genres found for: "%s"', metadata['title'],)
             return
 
-        genre_joiner = self.api.plugin_config[OPT_GENRE_SEPARATOR] if self.api.plugin_config[OPT_GENRE_SEPARATOR] else self.api.global_config.setting[OPT_GENRE_SEPARATOR] if self.api.global_config.setting[OPT_GENRE_SEPARATOR] else MULTI_VALUED_JOINER
+        genre_joiner = self.api.global_config.setting[OPT_GENRE_SEPARATOR] if self.api.global_config.setting[OPT_GENRE_SEPARATOR] else MULTI_VALUED_JOINER
         self.api.logger.debug("Using '%s' as the genre separator.", genre_joiner,)
 
         genres = set()
